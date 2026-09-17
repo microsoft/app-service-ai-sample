@@ -353,6 +353,21 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 **/__pycache__/
 *.pyc
+.venv/
+venv/
+.coverage
+htmlcov/
+
+# Azure Developer CLI local environment
+.azure/
+
+# Generated Bicep build output
+infra/**/*.json
+!infra/**/main.parameters.json
+
+# Local source-import worktrees
+.source-import-temp/
+.upstream-temp/
 
 # Cake - Uncomment if you are using it
 #tools/**
