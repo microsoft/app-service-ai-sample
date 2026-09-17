@@ -40,13 +40,11 @@ Azure OpenAI resource. The included Bicep creates that role assignment.
 ### Existing App Service or portal-created resources
 
 The application can run on an existing Linux App Service app. This repository
-does not contain a portal create template or any unreleased portal
-infrastructure integration. Before deploying the source, configure the App
-Service identity, role assignment, app settings, Python runtime, and startup
-command described in [the existing-resource guide](docs/deploy-existing.md).
-
-This path requires an Azure OpenAI resource and model deployment that already
-exist.
+does not provision resources for this deployment path. Before deploying the
+source, provide an existing Azure OpenAI resource and model deployment, then
+configure the App Service identity, role assignment, app settings, Python
+runtime, and startup command described in
+[the existing-resource guide](docs/deploy-existing.md).
 
 ### Azure Developer CLI
 
@@ -69,21 +67,34 @@ vary by subscription.
 ## Run locally
 
 Create an Azure OpenAI resource and model deployment, or reuse existing ones.
-Clone the official repository, copy `.env.sample` to `.env`, and set the
-endpoint, deployment name, and tenant. Then authenticate and run the app:
+Clone the official repository and create a virtual environment:
 
 ```shell
 git clone https://github.com/microsoft/app-service-ai-sample.git
 cd app-service-ai-sample
 python -m venv .venv
+```
+
+Activate the environment on Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+On macOS or Linux:
+
+```shell
+. .venv/bin/activate
+```
+
+Copy `.env.sample` to `.env` and set the endpoint, deployment name, and
+tenant. Then install the dependencies, authenticate, and run the app:
+
+```shell
 pip install -r requirements.txt
 azd auth login
 python -m quart --app app run --port 50505 --reload
 ```
-
-On Windows PowerShell, activate the virtual environment with
-`.\.venv\Scripts\Activate.ps1`. On macOS or Linux, use
-`. .venv/bin/activate`.
 
 Open <http://localhost:50505>.
 

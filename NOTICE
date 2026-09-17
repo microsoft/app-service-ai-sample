@@ -2,8 +2,8 @@ App Service AI Sample
 
 This repository contains source adapted from:
 
-* MStmaul/lumen-app-service-ai-sample, commit
-  a805027fcc89ede0e602df4a016ee5dc721771c9, licensed under the MIT License.
+* An MIT-licensed derivative source snapshot at commit
+  a805027fcc89ede0e602df4a016ee5dc721771c9, copyright (c) 2026 MStmaul.
 * Azure-Samples/openai-chat-app-quickstart, copyright Microsoft Corporation,
   licensed under the MIT License.
 * Azure-Samples/msdocs-python-flask-webapp-quickstart App Service Bicep
